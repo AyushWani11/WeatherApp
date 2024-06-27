@@ -45,11 +45,13 @@ const Interface = () => {
                 fetchWeather(response.data[0].Key);
             } else {
                 notifyInvalidCityName();
+                setError("Invalid city name");
                 setLoading(false);
             }
         } catch (error) {
             notifyNetworkError();
             console.error('Error fetching location data:', error);
+            setError("Network error");
             setLocKey(null);
             setWeather(null);
             setLoading(false);
@@ -67,10 +69,12 @@ const Interface = () => {
                 setWeather(response.data[0]);
             } else {
                 notifyWeatherError();
+                setError("Error fetching weather data");
             }
         } catch (error) {
             notifyWeatherError();
             console.error('Error fetching weather data:', error);
+            setError("Error fetching weather data");
             setWeather(null);
         } finally {
             setLoading(false);
@@ -83,6 +87,8 @@ const Interface = () => {
             return;
         }
         setInitialLoad(false); 
+        setWeather(null);
+        setError(null); 
         fetchLocation();
     }
 
@@ -101,16 +107,21 @@ const Interface = () => {
             </div>
 
             {loading && <p>Loading...</p>}
-            {error && <p className="error">{error}</p>}
-
-            {initialLoad && (
+        
+            {initialLoad && !loading && !weather && !error && (
                 <div className='welcome-message'>
                     <h1>Welcome!</h1>
                     <p>Enter the city name to get information about its weather.</p>
                 </div>
             )}
 
-            {!loading && weather && locKey && (
+            {error && !loading && (
+                            <div className='error-message'>
+                                <p>{error}</p>
+                            </div>
+                        )}
+
+            {!loading && weather && locKey && !error && (
                 <div className='display'>
                     <div className='wrapper'>
                         <h2>CURRENT WEATHER</h2>
@@ -134,7 +145,6 @@ const Interface = () => {
                 </div>
             )}
 
-            {!loading && !weather && !error && !initialLoad && <p>Weather Information couldn't be found</p>}
             <ToastContainer
             autoClose={2000}
             hideProgressBar={false}

@@ -25,13 +25,13 @@ https://ayushwani11.github.io/WeatherApp/
 
 - Method: GET
 - City Search:
-URL: http://dataservice.accuweather.com/locations/v1/cities/search
+ URL: http://dataservice.accuweather.com/locations/v1/cities/search
 -Weather Information:
-URL: http://dataservice.accuweather.com/currentconditions/v1/{locationKey}
+ URL: http://dataservice.accuweather.com/currentconditions/v1/{locationKey}
 
 ## Fonts:
-Quicksand: "https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
-Sen: "https://fonts.googleapis.com/css2?family=Sen:wght@400..800&display=swap"
+- Quicksand: "https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+- Sen: "https://fonts.googleapis.com/css2?family=Sen:wght@400..800&display=swap"
 
 ## Run Locally:
 

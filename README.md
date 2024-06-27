@@ -26,7 +26,7 @@ https://ayushwani11.github.io/WeatherApp/
 - Method: GET
 - City Search:
  URL: http://dataservice.accuweather.com/locations/v1/cities/search
--Weather Information:
+- Weather Information:
  URL: http://dataservice.accuweather.com/currentconditions/v1/{locationKey}
 
 ## Fonts:
